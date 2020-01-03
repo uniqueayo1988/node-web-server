@@ -10,12 +10,12 @@
   </style>
 </head>
 <body>
-  <h1>{{pageTitle}}</h1>
+  {{> header}}
   <p>The home of future Developers</p>
   <p>{{welcomeMsg}}</p>
+  <p>{{changeCase welcomeMsg}}</p>
 
-  <footer>
-    <p>Copyright {{currentYear}}</p>
-  </footer>
+  {{> footer}}
+  <a href="/about">Go to About Page</a>
 </body>
 </html>
