@@ -4,17 +4,20 @@
   <meta charset="UTF-8">
   <title>Web Server About Page</title>
   <style type="text/css">
+    body {
+      text-align: center;
+    }
     h1 {
       color: blue
     }
   </style>
 </head>
 <body>
-  <h1>{{pageTitle}}</h1>
+  {{> header}}
   <p>All we do here is code! code! code!</p>
-
-  <footer>
-    <p>Copyright {{currentYear}}</p>
-  </footer>
+  <p>{{changeCase 'Welcome'}}</p>
+  
+  {{> footer}}
+  <a href="/">Go to Home Page</a>
 </body>
 </html>
