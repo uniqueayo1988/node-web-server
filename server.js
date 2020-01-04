@@ -1,9 +1,31 @@
 const express = require('express')
 const hbs = require('hbs')
+const fs = require('fs')
+
 const app = express()
 
 hbs.registerPartials(__dirname + '/views/partials')
 app.set('view engine', 'hbs')
+
+// add a middleware
+app.use((req, res, next) => {
+  var now = new Date().toString()
+  var log = `${now}: ${req.method} - Method ${req.url} - URL`
+  console.log(log)
+  fs.appendFile('server.log', log + '\n', (err) => {
+    if (err) {
+      console.log('Unable to append to server.log file')
+    }
+  })
+  next()
+})
+
+// maintenance page middleware
+// app.use((req, res, next) => {
+//   res.render('maintenance.hbs')
+// })
+
+// if above, help.html will be rendered in lieu of maintenance page
 app.use(express.static(`${__dirname}/public`))
 
 // register functions that can be called in a partial
