@@ -19,6 +19,6 @@
   "homepage": "https://github.com/uniqueayo1988/node-web-server#readme",
   "dependencies": {
     "express": "^4.17.1",
-    "hbs": "^4.0.6"
+    "hbs": "^4.2.0"
   }
 }
